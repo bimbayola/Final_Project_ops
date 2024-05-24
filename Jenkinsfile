@@ -9,7 +9,6 @@ pipeline {
                 git url: 'https://github.com/bimbayola/Final_Project.git', branch: 'main'
             }
         }
-
         stage('Build Docker Image') {
             steps {
                 script {
@@ -18,25 +17,25 @@ pipeline {
             }
         }
         stage('Run Docker Container') {
-           steps {
+            steps {
                 bat 'docker-compose up -d --build'
             }
         }
-        post {
-            success {
+    }
+    post {
+        success {
             emailext (
                 to: 'a.jastrzebska.817@studms.ug.edu.pl',
-                subject: "Build Success: ${currentBuild.fullDisplayName}",
-                body: "Congratulations! Your build ${currentBuild.fullDisplayName} was successful."
+                subject: "Pipeline Success",
+                body: "Your Jenkins pipeline executed successfully."
             )
         }
         failure {
             emailext (
                 to: 'a.jastrzebska.817@studms.ug.edu.pl',
-                subject: "Build Failure: ${currentBuild.fullDisplayName}",
-                body: "Oh no! Your build ${currentBuild.fullDisplayName} failed. Please check Jenkins for details."
+                subject: "Pipeline Failure",
+                body: "Your Jenkins pipeline execution failed. Please check the Jenkins console output for details."
             )
         }
-    }
     }
 }
