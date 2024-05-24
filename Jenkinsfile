@@ -25,14 +25,14 @@ pipeline {
           post {
         success {
             emailext (
-                to: 'your_email@example.com',
+                to: 'a.jastrzebska.817@studms.ug.edu.pl',
                 subject: "Build Success: ${currentBuild.fullDisplayName}",
                 body: "Congratulations! Your build ${currentBuild.fullDisplayName} was successful."
             )
         }
         failure {
             emailext (
-                to: 'your_email@example.com',
+                to: 'a.jastrzebska.817@studms.ug.edu.pl',
                 subject: "Build Failure: ${currentBuild.fullDisplayName}",
                 body: "Oh no! Your build ${currentBuild.fullDisplayName} failed. Please check Jenkins for details."
             )
