@@ -25,14 +25,14 @@ pipeline {
     post {
         success {
             emailext (
-                to: 'a.jastrzebska.817@studms.ug.edu.pl',
+                to: 'oj.ola.jastrzebska@gmail.com',
                 subject: "Pipeline Success",
                 body: "Your Jenkins pipeline executed successfully."
             )
         }
         failure {
             emailext (
-                to: 'a.jastrzebska.817@studms.ug.edu.pl',
+                to: 'oj.ola.jastrzebska@gmail.com',
                 subject: "Pipeline Failure",
                 body: "Your Jenkins pipeline execution failed. Please check the Jenkins console output for details."
             )
