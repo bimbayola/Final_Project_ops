@@ -22,8 +22,8 @@ pipeline {
                 bat 'docker-compose up -d --build'
             }
         }
-          post {
-        success {
+        post {
+            success {
             emailext (
                 to: 'a.jastrzebska.817@studms.ug.edu.pl',
                 subject: "Build Success: ${currentBuild.fullDisplayName}",
