@@ -20,9 +20,9 @@ pipeline {
             steps {
                 bat 'docker-compose up -d --build'
             }
-             
         }
-        post {
+    }
+    post {
         success {
             emailext (
                 to: 'oj.ola.jastrzebska@gmail.com',
@@ -38,6 +38,4 @@ pipeline {
             )
         }
     }
-    }
-   
 }
