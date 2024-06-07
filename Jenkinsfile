@@ -22,20 +22,5 @@ pipeline {
             }
         }
     }
-    post {
-        success {
-            emailext (
-                to: 'oj.ola.jastrzebska@gmail.com',
-                subject: "Pipeline Success",
-                body: "Your Jenkins pipeline executed successfully."
-            )
-        }
-        failure {
-            emailext (
-                to: 'oj.ola.jastrzebska@gmail.com',
-                subject: "Pipeline Failure",
-                body: "Your Jenkins pipeline execution failed. Please check the Jenkins console output for details."
-            )
-        }
-    }
+   
 }
